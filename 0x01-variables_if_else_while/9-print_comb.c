@@ -11,11 +11,12 @@ int main(void)
 
 		putchar(n);
 
-	if (n < 57)
-	{
+		if (n != 57)
+		{
 
-		putchar(',');
-		putchar(' ');
+			putchar(',');
+			putchar(' ');
+		}
 
 	}
 	putchar('\n');
