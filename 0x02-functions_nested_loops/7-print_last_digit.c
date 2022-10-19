@@ -7,8 +7,6 @@
  */
 int print_last_digit(int n)
 {
-	int n = INT_MIN;
-
 
 
 	int a = -(n % 10);
