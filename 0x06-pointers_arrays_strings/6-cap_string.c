@@ -2,7 +2,6 @@
 
 /**
  * cap_string - capitalizes words
- OB
  * @str: string
  * Return: pointer to string
  */
