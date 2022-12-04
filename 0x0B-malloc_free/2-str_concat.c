@@ -8,16 +8,13 @@
  */
 int _strlen(char *s)
 {
-	int counter = 0;
+	unsigned int i = 0;
 
-	if (!*s)
-		return (0);
-	while (*s)
+	while (s[i] != '\0')
 	{
-		counter++;
-		s++;
+		i++;
 	}
-	return (counter);
+	return (i);
 }
 /**
  * str_concat - concatenates two strings
@@ -30,27 +27,31 @@ char *str_concat(char *s1, char *s2)
 	char *new;
 	unsigned int i;
 	unsigned int j;
-	int total = 0;
+	int total;
 
 
-	if (!s1)
+	if (s1 == NULL)
 		s1 = "";
-	if (!s2)
+	if (s2 == NULL)
 		s2 = "";
-	total += _strlen(s1) + _strlen(s2);
-	new = malloc((total * sizeof(char)) + 1);
-	if (new == NULL)
+	
+	total = (_strlen(s1) + _strlen(s2) + 1);
+	new = (char *) malloc((total * sizeof(char)));
+
+	if (new == 0)
 	{
 		return (NULL);
 	}
-	for (i = 0; s1[i]; i++)
+
+
+
+	for (i = 0; *(s1 + i) != '\0'; i++)
+		*(new + i) = *(s1 + i);
+	
+	for (j = 0; *(s2 + j) != '\0'; j++)
 	{
-		new[i] = s1[i];
+		*(new + i) = *(s2 + j);
+		i++;
 	}
-	for (j = 0; s2[j]; j++, i++)
-	{
-		new[j] = s2[j];
-	}
-	new[i] = '\0';
 	return (new);
 }
